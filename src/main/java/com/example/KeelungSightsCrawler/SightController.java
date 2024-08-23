@@ -10,7 +10,7 @@ public class SightController {
     @Autowired
     private SightService sightService;
 
-    @CrossOrigin(origins = "http://localhost:63342")
+    @CrossOrigin(origins = "*")
     @GetMapping("/SightAPI")
     public List<Sight> getSights(@RequestParam("zone") String zone) {
         return sightService.getSightsByZone(zone);
