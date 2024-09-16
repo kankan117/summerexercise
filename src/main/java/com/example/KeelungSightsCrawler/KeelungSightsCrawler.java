@@ -38,7 +38,9 @@ public class KeelungSightsCrawler {
                                     String description = pointArea.select("meta[itemprop=description]").attr("content");
                                     String address = pointArea.select("meta[itemprop=address]").attr("content");
                                     String category = pointArea.select("cite > span.point_type > span[property='rdfs:label'] strong").text();
-
+                                    if (photoURL == null || photoURL.isEmpty()) {
+                                        photoURL = "/no-image-available-icon.jpg";  // 這裡設置預設圖片的路徑
+                                    }
                                     Sight sight = new Sight(name, targetZone, category, photoURL, description, address);
                                     sights.add(sight);
                                 }
